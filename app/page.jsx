@@ -1,123 +1,90 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Music, Cpu, Users, PlayCircle, Moon, Sun } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function HomePage() {
-  const [darkMode, setDarkMode] = useState(true);
-
-  const toggleTheme = () => setDarkMode(!darkMode);
-
-  const features = [
-    {
-      icon: <Music size={28} />,
-      title: 'Music Production',
-      description: 'High-quality audio creation, mixing, mastering, and original sound design for modern artists.',
-    },
-    {
-      icon: <Cpu size={28} />,
-      title: 'Tech & Innovation',
-      description: 'Cutting-edge AI and digital solutions for entertainment and media production.',
-    },
-    {
-      icon: <Users size={28} />,
-      title: 'Artists & Projects',
-      description: 'Showcasing creative collaborations, artist showcases, and live experiences.',
-    },
-  ];
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className={`${darkMode ? 'bg-black text-white' : 'bg-white text-black'} min-h-screen transition-colors duration-500`}>
+    <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6">
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-8 py-6 border-b border-gray-800">
-        <h1 className="text-2xl font-bold">🎧 AudaCT Studios</h1>
-        <div className="flex items-center gap-6">
-          <a href="#projects" className="hover:text-gray-400 transition">Projects</a>
-          <a href="#artists" className="hover:text-gray-400 transition">Artists</a>
-          <a href="#contact" className="hover:text-gray-400 transition">Contact</a>
-          <button onClick={toggleTheme} className="p-2 border rounded-full border-gray-700 hover:bg-gray-800 transition">
-            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
+      <nav className="w-full flex justify-between items-center py-4 max-w-6xl">
+        <h1 className="text-2xl font-bold tracking-wide">AudaCT Studios</h1>
+        <div className="hidden md:flex gap-8 text-sm">
+          <a href="#" className="hover:text-gray-400">Home</a>
+          <a href="#" className="hover:text-gray-400">Artists</a>
+          <a href="#" className="hover:text-gray-400">Projects</a>
+          <a href="#" className="hover:text-gray-400">Contact</a>
         </div>
+        <button
+          className="md:hidden"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </nav>
 
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div className="flex flex-col items-center gap-4 py-4 md:hidden">
+          <a href="#" className="hover:text-gray-400">Home</a>
+          <a href="#" className="hover:text-gray-400">Artists</a>
+          <a href="#" className="hover:text-gray-400">Projects</a>
+          <a href="#" className="hover:text-gray-400">Contact</a>
+        </div>
+      )}
+
       {/* Hero Section */}
-      <section className="text-center py-28 px-6">
-        <motion.h2
-          className="text-5xl md:text-6xl font-extrabold mb-4"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+      <motion.section
+        className="flex flex-col items-center justify-center text-center py-20 max-w-3xl"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <h2 className="text-4xl md:text-6xl font-extrabold mb-4">
+          🎧 AudaCT Studios
+        </h2>
+        <p className="text-lg text-gray-300 mb-6">
+          Music. Entertainment. Technology. Creativity in motion.
+        </p>
+        <a
+          href="#projects"
+          className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition"
         >
-          Music. Entertainment. Technology.
-        </motion.h2>
-        <motion.p
-          className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 1 }}
-        >
-          AudaCT Studios blends creativity and innovation — where sound meets technology.
-        </motion.p>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-semibold flex items-center gap-2 mx-auto"
-        >
-          <PlayCircle size={20} /> Explore Projects
-        </motion.button>
-      </section>
+          Explore Projects
+        </a>
+      </motion.section>
 
       {/* Features Section */}
-      <section className="grid md:grid-cols-3 gap-10 px-10 py-16 bg-gradient-to-b from-gray-900 to-black" id="features">
-        {features.map((feature, i) => (
-          <motion.div
-            key={i}
-            className="p-6 border border-gray-800 rounded-2xl bg-gray-950 hover:bg-gray-900 transition"
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="mb-4 text-blue-500">{feature.icon}</div>
-            <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-            <p className="text-gray-400">{feature.description}</p>
-          </motion.div>
-        ))}
-      </section>
-
-      {/* Artists Section */}
-      <section className="py-20 text-center" id="artists">
-        <h2 className="text-4xl font-bold mb-8">Our Artists</h2>
-        <div className="grid md:grid-cols-3 gap-10 px-10">
-          {['Afro-Lofi World', 'Echo Nova', 'BlueMind'].map((artist, i) => (
-            <motion.div
-              key={i}
-              className="p-6 border border-gray-800 rounded-2xl bg-gray-950 hover:bg-gray-900 transition"
-              whileHover={{ scale: 1.05 }}
-            >
-              <h3 className="text-2xl font-semibold mb-2">{artist}</h3>
-              <p className="text-gray-400">Innovative sound and artistry redefining music and culture.</p>
-            </motion.div>
-          ))}
+      <section
+        id="projects"
+        className="grid md:grid-cols-3 gap-8 py-20 w-full max-w-6xl text-center"
+      >
+        <div className="bg-gray-900 p-8 rounded-2xl shadow-lg">
+          <h3 className="text-xl font-bold mb-2">🎵 Music Production</h3>
+          <p className="text-gray-400 text-sm">
+            Home of genre-blending sound design and artist collaboration.
+          </p>
         </div>
-      </section>
-
-      {/* Projects Section */}
-      <section className="py-20 text-center bg-gray-950" id="projects">
-        <h2 className="text-4xl font-bold mb-8">Ongoing Projects</h2>
-        <div className="grid md:grid-cols-2 gap-10 px-10">
-          <motion.div whileHover={{ scale: 1.03 }} className="p-6 rounded-2xl border border-gray-800 bg-black">
-            <h3 className="text-2xl font-semibold mb-2">Reflections in Blue</h3>
-            <p className="text-gray-400 mb-3">A chill Afro-Lofi album blending jazz textures and world rhythms.</p>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.03 }} className="p-6 rounded-2xl border border-gray-800 bg-black">
-            <h3 className="text-2xl font-semibold mb-2">SoundTech Vision</h3>
-            <p className="text-gray-400 mb-3">Experimental AI-driven sound design project shaping the future of audio.</p>
-          </motion.div>
+        <div className="bg-gray-900 p-8 rounded-2xl shadow-lg">
+          <h3 className="text-xl font-bold mb-2">🎬 Entertainment</h3>
+          <p className="text-gray-400 text-sm">
+            From events to visuals — we craft full creative experiences.
+          </p>
+        </div>
+        <div className="bg-gray-900 p-8 rounded-2xl shadow-lg">
+          <h3 className="text-xl font-bold mb-2">💻 Tech Innovation</h3>
+          <p className="text-gray-400 text-sm">
+            AI-driven tools shaping the future of music and digital art.
+          </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="py-10 text-center border-t border-gray-800 text-gray-400">
-        <p>© {new Date().getFullYear()} AudaCT Studios — Creativity in Motion.</p>
+      <footer className="py-10 text-gray-500 text-sm">
+        © {new Date().getFullYear()} AudaCT Studios. All rights reserved.
       </footer>
-    </div>
+    </main>
   );
 }
