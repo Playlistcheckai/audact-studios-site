@@ -1,8 +1,8 @@
-import "../globals.css";
+import './globals.css';
 
 export const metadata = {
-  title: "AudaCT Studios",
-  description: "Music, Entertainment, and Tech Powerhouse.",
+  title: 'AudaCT Studios',
+  description: 'Music. Entertainment. Technology. Creativity in motion.',
 };
 
 export default function RootLayout({ children }) {
