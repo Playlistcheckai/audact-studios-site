@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -10,13 +11,25 @@ export default function HomePage() {
     <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6">
       {/* Navbar */}
       <nav className="w-full flex justify-between items-center py-4 max-w-6xl">
-        <h1 className="text-2xl font-bold tracking-wide">AudaCT Studios</h1>
+        <div className="flex items-center gap-3">
+          {/* Logo Image */}
+          <Image
+            src="/logo.png"
+            alt="AudaCT Studios Logo"
+            width={40}
+            height={40}
+            className="rounded-lg"
+          />
+          <h1 className="text-xl font-bold tracking-wide">AudaCT Studios</h1>
+        </div>
+
         <div className="hidden md:flex gap-8 text-sm">
           <a href="#" className="hover:text-gray-400">Home</a>
           <a href="#" className="hover:text-gray-400">Artists</a>
           <a href="#" className="hover:text-gray-400">Projects</a>
           <a href="#" className="hover:text-gray-400">Contact</a>
         </div>
+
         <button
           className="md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -25,7 +38,7 @@ export default function HomePage() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {menuOpen && (
         <div className="flex flex-col items-center gap-4 py-4 md:hidden">
           <a href="#" className="hover:text-gray-400">Home</a>
@@ -55,31 +68,6 @@ export default function HomePage() {
           Explore Projects
         </a>
       </motion.section>
-
-      {/* Features Section */}
-      <section
-        id="projects"
-        className="grid md:grid-cols-3 gap-8 py-20 w-full max-w-6xl text-center"
-      >
-        <div className="bg-gray-900 p-8 rounded-2xl shadow-lg">
-          <h3 className="text-xl font-bold mb-2">🎵 Music Production</h3>
-          <p className="text-gray-400 text-sm">
-            Home of genre-blending sound design and artist collaboration.
-          </p>
-        </div>
-        <div className="bg-gray-900 p-8 rounded-2xl shadow-lg">
-          <h3 className="text-xl font-bold mb-2">🎬 Entertainment</h3>
-          <p className="text-gray-400 text-sm">
-            From events to visuals — we craft full creative experiences.
-          </p>
-        </div>
-        <div className="bg-gray-900 p-8 rounded-2xl shadow-lg">
-          <h3 className="text-xl font-bold mb-2">💻 Tech Innovation</h3>
-          <p className="text-gray-400 text-sm">
-            AI-driven tools shaping the future of music and digital art.
-          </p>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="py-10 text-gray-500 text-sm">
