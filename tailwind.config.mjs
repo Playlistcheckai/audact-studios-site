@@ -2,10 +2,10 @@
 export default {
   content: [
     "./app/**/*.{js,jsx,ts,tsx}",
-    "./globals.css"
+    "./components/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-};
+}
