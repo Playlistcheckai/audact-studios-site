@@ -1,13 +1,7 @@
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center text-center p-8">
-      <h1 className="text-4xl font-bold mb-4">🎧 AudaCT Studios</h1>
-      <p className="text-lg text-gray-400">
-        Music. Entertainment. Technology. Creativity in motion.
-      </p>
-
-      {/* Artists Section */}
-      <section className="mt-16">
+    <main className="flex flex-col items-center justify-center text-center px-6 py-10">
+      <section className="mt-8">
         <h2 className="text-2xl font-semibold mb-4">Our Artists</h2>
         <ul className="space-y-2 text-gray-300">
           <li>KIMOhLA</li>
@@ -17,7 +11,6 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* Projects Section */}
       <section className="mt-12">
         <h2 className="text-2xl font-semibold mb-4">Projects</h2>
         <ul className="space-y-2 text-gray-300">
@@ -33,7 +26,8 @@ export default function Home() {
             – Tech Product
           </li>
           <li>
-            <span className="font-medium">Reflections in Blue</span> – by Afro-Lofi World
+            <span className="font-medium">Reflections in Blue</span> – by Afro-Lofi
+            World
           </li>
         </ul>
       </section>
