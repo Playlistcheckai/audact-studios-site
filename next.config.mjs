@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'vercel.app', 'playlistcheckai.com'],
+    domains: ["localhost"],
   },
 };
 
