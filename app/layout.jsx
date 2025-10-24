@@ -8,10 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body>{children}</body>
+      <body className="bg-black text-white font-sans">{children}</body>
     </html>
   );
 }
