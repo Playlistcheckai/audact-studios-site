@@ -2,43 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===============================
-   Global Styles for AudaCT Studios
-   =============================== */
-
 body {
-  background-color: #000; /* Keep the site dark */
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
+  @apply bg-black text-white font-sans;
 }
 
-h1, h2, h3, h4, h5 {
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-p {
-  line-height: 1.6;
-  color: #ccc;
-}
-
-a {
-  color: #4f46e5;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Optional subtle animation for page transitions */
-.fade-in {
-  animation: fadeIn 0.8s ease-in-out both;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
