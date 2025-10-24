@@ -1,6 +1,13 @@
-export default function HomePage() {
+export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6">
+      {/* Logo */}
+      <img
+        src="/logo.jpg"
+        alt="AudaCT Studios Logo"
+        className="w-24 h-auto mb-4 rounded-xl"
+      />
+
       <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">
         🎧 AudaCT Studios
       </h1>
@@ -46,18 +53,19 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
           <div className="p-4 border border-gray-700 rounded-xl hover:bg-gray-900 transition">
-            <h3 className="text-xl font-bold mb-2">PlaylistcheckAI.com</h3>
+            <h3 className="text-xl font-bold mb-2">
+              Reflections in Blue by Afro-Lofi World
+            </h3>
             <p className="text-gray-400">
-              A tech product by AudaCT Studios shaping the future of music and
-              creativity.
+              A chill Afro-Lofi album blending jazz textures and world rhythms.
             </p>
           </div>
 
           <div className="p-4 border border-gray-700 rounded-xl hover:bg-gray-900 transition">
-            <h3 className="text-xl font-bold mb-2">DILIGENCE by KIMOhLA</h3>
+            <h3 className="text-xl font-bold mb-2">PlaylistcheckAI.com</h3>
             <p className="text-gray-400">
-              A genre-bending Afro-Lofi experience blending emotion, rhythm, and
-              soulful storytelling.
+              A tech product by AudaCT Studios shaping the future of music and
+              creativity.
             </p>
           </div>
         </div>
