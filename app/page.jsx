@@ -1,4 +1,5 @@
 export const revalidate = 0;
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6">
@@ -67,4 +68,3 @@ export default function Home() {
     </main>
   );
 }
-
